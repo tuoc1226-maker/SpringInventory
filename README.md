@@ -1,29 +1,29 @@
 # Spring Boot 在庫管理システムとオンライン決済カウンター
-
+[🇯🇵 日本語](README.md) | [🇺🇸 English](README.en.md)
 ####技術スタック:
 
 コアフレームワーク
-	Spring Boot
-	Spring Web (spring-boot-starter-web) — REST API / MVC レイヤー
-	Spring Data JPA (spring-boot-starter-data-jpa) — ORM / 永続化
-	Spring HATEOAS (spring-hateoas + spring-boot-starter-hateoas)
-	Spring Integration Event
+	- Spring Boot
+	- Spring Web (spring-boot-starter-web) — REST API / MVC レイヤー
+	- Spring Data JPA (spring-boot-starter-data-jpa) — ORM / 永続化
+	- Spring HATEOAS (spring-hateoas + spring-boot-starter-hateoas)
+	- Spring Integration Event
 データベース
-	MySQL
-	H2 — インメモリデータベース
+	- MySQL
+	- H2 — インメモリデータベース
 API ドキュメント
-	Springfox Swagger2 + Swagger UI (v2.7.0)
-	Jackson XML (jackson-dataformat-xml) + Woodstox
+	- Springfox Swagger2 + Swagger UI (v2.7.0)
+	- Jackson XML (jackson-dataformat-xml) + Woodstox
 ユーティリティ
-	Lombok
-	Apache Commons Lang3
-	Spring Boot Validation
-	Jersey / JAX-RS API (残存依存関係)
+	- Lombok
+	- Apache Commons Lang3
+	- Spring Boot Validation
+	- Jersey / JAX-RS API (残存依存関係)
 テスト
-	JUnit 5 (Jupiter) — テストフレームワーク
-	Mockito — モックフレームワーク
-	AssertJ — 流暢なアサーション
-	Spring Boot Test (JUnit) （ビンテージは除外します。JUnit 5のみ対応）
+	- JUnit 5 (Jupiter) — テストフレームワーク
+	- Mockito — モックフレームワーク
+	- AssertJ — 流暢なアサーション
+	- Spring Boot Test (JUnit) （ビンテージは除外します。JUnit 5のみ対応）
 
 #### オンライン食料品店管理者向け：
 - 一般的な食料品店の在庫管理を行うバックエンドソフトウェアを作成します。
