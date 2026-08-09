@@ -1,66 +1,92 @@
-# Spring Boot Inventory Management System And e-checkout Counter
+# Spring Boot 在庫管理システムとオンライン決済カウンター
 
-## Requirements
+####技術スタック:
 
-#### Online-Grocery store Admin:
-- Create a back-end software to maintain Inventory of items in a general store.
-- input for launching application: 3 csv files with list of fruits & Vegitables(f&v), processed food items & stationary.
-- All the items have name, 15-digit barcode number, price & in-stock quantity
-- processed food can be vegan or non-vegan. they have manufacturing & expiring dates
-- Stationary is limited to only one item per type per purchase order.
+コアフレームワーク
+	Spring Boot
+	Spring Web (spring-boot-starter-web) — REST API / MVC レイヤー
+	Spring Data JPA (spring-boot-starter-data-jpa) — ORM / 永続化
+	Spring HATEOAS (spring-hateoas + spring-boot-starter-hateoas)
+	Spring Integration Event
+データベース
+	MySQL
+	H2 — インメモリデータベース
+API ドキュメント
+	Springfox Swagger2 + Swagger UI (v2.7.0)
+	Jackson XML (jackson-dataformat-xml) + Woodstox
+ユーティリティ
+	Lombok
+	Apache Commons Lang3
+	Spring Boot Validation
+	Jersey / JAX-RS API (残存依存関係)
+テスト
+	JUnit 5 (Jupiter) — テストフレームワーク
+	Mockito — モックフレームワーク
+	AssertJ — 流暢なアサーション
+	Spring Boot Test (JUnit) （ビンテージは除外します。JUnit 5のみ対応）
 
-#### Add an e-checkout counter 
+#### オンライン食料品店管理者向け：
+- 一般的な食料品店の在庫管理を行うバックエンドソフトウェアを作成します。
+- アプリケーション起動のための入力データ：果物と野菜（f&v）、加工食品、文房具のリストを含む3つのCSVファイル。
+- すべての商品には、商品名、15桁のバーコード番号、価格、在庫数量が含まれます。
+- 加工食品は、ビーガン対応または非ビーガン対応です。製造日と賞味期限が含まれます。
+- 文房具は、1回の注文につき、種類ごとに1点までです。
 
-1.	Stationary is limited to one quantity per item type per customer purchase order.
-2.	Purchase order will take:
-•	date of purchase, 
-•	list of items (should accept bar-code or name), 
-•	quantity of each, 
-•	payment type (cash or card), 
-•	membership number(optional).
-3.	Each purchase order will be assigned a receipt number on successful transaction.
-4.	Inventory should be updated after each transaction.
-5.	Maintain list of memberships with membership number, name, contact email & phone number.
+#### 電子決済カウンターの追加
 
+1. 文房具は、1回の注文につき、種類ごとに1点までです。
+2. 注文には、以下の情報が必要です。
+	• 購入日
+	• 商品リスト（バーコードまたは商品名を受け付ける）
+	• 各商品の数量
+	• 支払い方法（現金またはカード）
+	• 会員番号（任意）
+3. 各発注書は、取引が成功すると領収書番号が付与されます。
+4. 各取引後、在庫を更新する必要があります。
+5. 会員番号、氏名、連絡先メールアドレス、電話番号を含む会員リストを維持してください。
 
-#### Expected output(s):
+#### 期待される出力：
 
-#### REST APIs for:
-- All data is to be persisted.
-- REST API to add more quantity to stock (name/barcode & quantity)
-- REST APIs for list of,
-- all items in-stock with available quantity with details
-- in-stock f&v with details
-- in-stock processed food with details
-- in-stock vegan processed food with details
-- in-stock vegan processed food with details
-- in-stock stationary with details
-- Transaction details by receipt number.
-- Receipt numbers by membership number.
-- Receipt numbers without membership number.
-- Total sale amount on a specific date or between two dates.
-- Total quantities of each item sold on a specific date or between two dates.
-- Log remaining quantities of items at every configurable number of minutes.
-- Add new member and generate membership number.
-- Search items by full/partial name/barcode.
-- Maintain list of discounts on items. These should be applied at check-out and should be in receipt details.
-- List of suggested items based on previous purchases.
-- Unit testing.
+#### 以下のREST API：
+- すべてのデータは永続化されます。
 
+- 在庫に数量を追加するためのREST API（商品名/バーコードと数量）
+- 以下のリストを取得するためのREST API：
+- 在庫のあるすべての商品とその在庫数量、詳細情報
+- 在庫のある果物と野菜とその詳細情報
+- 在庫のある加工食品とその詳細情報
+- 在庫のあるビーガン加工食品とその詳細情報
+- 在庫のあるビーガン加工食品とその詳細情報
+- 在庫のある文房具とその詳細情報
+- 領収書番号ごとの取引詳細
+- 会員番号ごとの領収書番号
+- 会員番号のない領収書番号
+- 特定の日付または2つの日付間の合計売上金額
+- 特定の日付または2つの日付間の各商品の販売数量合計- 設定可能な分数ごとに商品の残量を記録します。
+- 新規会員を追加し、会員番号を生成します。
+- 商品名（フルネーム、部分名、バーコード）で検索します。
+- 商品の割引リストを管理します。割引はチェックアウト時に適用され、レシートの詳細に表示されます。
+- 過去の購入履歴に基づいたおすすめ商品リストを作成します。
+- 単体テストを実施します。
 
-#### Valid csv-File sample content:
-##### F&v file:
-|Name                                   | Barcode                               |Price      |qty|
+#### 有効なCSVファイルサンプル内容：
+##### 食品・野菜ファイル：
+|商品名 | バーコード |価格 |数量|
+
 |---------------------------------------|---------------------------------------|-----------|---|
-|Banana                                 |123456789000001                        |0.99       | 15|
 
-##### Processed food file:
-|Name                                   |Barcode                                |Price      |qty         |type       |mfg                        |exp      |
+|バナナ |123456789000001 |0.99 | 15|
+
+##### 加工食品ファイル：
+|商品名 |バーコード |価格 |数量 |種類 |製造年 |賞味期限 |
+
 |---------------------------------------|---------------------------------------|-----------|------------|-----------|---------------------------|---------|
-|Potato chips                           |789000011                              |2.99       |5           |v          |3/20/2020                  |8/09/2020|
 
-##### stationary:
-|Name                                   |Barcode                                |Price      |qty|
+|ポテトチップス|789000011|2.99|5|v|2020/3/20|2020/8/09|
+
+##### 文房具:
+|商品名|バーコード|価格|数量|
+
 |---------------------------------------|---------------------------------------|-----------|---|
-|Glue stick                             |123456789000011                        |1.99       |15 |
 
+|スティックのり|123456789000011|1.99|15|
