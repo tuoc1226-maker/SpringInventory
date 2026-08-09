@@ -1,32 +1,47 @@
 # Spring Boot Inventory Management System And e-checkout Counter
 [🇯🇵 日本語](README.md) | [🇺🇸 English](README.en.md)
-####Techincal Stacks:
+
+#### Techincal Stacks:
 
 Core Framework
 	Spring Boot
+	
 	Spring Web (spring-boot-starter-web) — REST API / MVC layer
+	
 	Spring Data JPA (spring-boot-starter-data-jpa) — ORM/persistence 
+	
 	Spring HATEOAS (spring-hateoas + spring-boot-starter-hateoas)
+	
 	Spring Integration Event
 	
 Database
+	
 	MySQL
+	
 	H2 — in-memory DB
 	
 API Documentation
+	
 	Springfox Swagger2 + Swagger UI (v2.7.0)
+	
 	Jackson XML (jackson-dataformat-xml) + Woodstox
 	
 Utilities
 	Lombok
+	
 	Apache Commons Lang3
+	
 	Spring Boot Validation
+	
 	Jersey / JAX-RS API leftover dependency
 	
 Testing
 	JUnit 5 (Jupiter) — test framework
+	
 	Mockito — mocking framework
+	
 	AssertJ — fluent assertions
+	
 	Spring Boot Test (JUnit vintage excluded, so it's JUnit 5-only)
 
 #### Online-Grocery store Admin:
