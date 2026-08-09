@@ -1,12 +1,17 @@
 # Spring Boot 在庫管理システムとオンライン決済カウンター
 [🇯🇵 日本語](README.md) | [🇺🇸 English](README.en.md)
+
 ####技術スタック:
 
 コアフレームワーク
 	- Spring Boot
+	
 	- Spring Web (spring-boot-starter-web) — REST API / MVC レイヤー
+	
 	- Spring Data JPA (spring-boot-starter-data-jpa) — ORM / 永続化
+	
 	- Spring HATEOAS (spring-hateoas + spring-boot-starter-hateoas)
+	
 	- Spring Integration Event
 データベース
 	- MySQL
